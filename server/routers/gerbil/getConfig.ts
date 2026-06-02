@@ -20,6 +20,7 @@ const getConfigSchema = z.object({
 
 export type GetConfigResponse = {
     listenPort: number;
+    relayPort: number;
     ipAddress: string;
     peers: {
         publicKey: string | null;
@@ -142,7 +143,10 @@ export async function generateGerbilConfig(exitNode: ExitNode) {
     peers = [...sitePeers, ...clientPeers];
 
     const configResponse: GetConfigResponse = {
-        listenPort: exitNode.listenPort || 51820,
+        listenPort:
+            exitNode.listenPort ||
+            config.getRawConfig().gerbil.start_port,
+        relayPort: config.getRawConfig().gerbil.clients_start_port,
         ipAddress: exitNode.address,
         peers
     };
