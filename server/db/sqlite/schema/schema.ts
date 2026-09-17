@@ -130,7 +130,7 @@ export const sites = sqliteTable(
         address: text("address"), // this is the address of the wireguard interface in newt
         endpoint: text("endpoint"), // this is how to reach gerbil externally - gets put into the wireguard config
         localEndpoints: text("localEndpoints"), // JSON encoded list of string ips on the local machine to try to connect to
-        publicKey: text("publicKey"), // TODO: Fix typo in publicKey
+        publicKey: text("publicKey"),
         lastHolePunch: integer("lastHolePunch"),
         listenPort: integer("listenPort"),
         dockerSocketEnabled: integer("dockerSocketEnabled", { mode: "boolean" })
