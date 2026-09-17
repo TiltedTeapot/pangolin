@@ -143,10 +143,8 @@ export async function generateGerbilConfig(exitNode: ExitNode) {
     peers = [...sitePeers, ...clientPeers];
 
     const configResponse: GetConfigResponse = {
-        listenPort:
-            exitNode.listenPort ||
-            config.getRawConfig().gerbil.start_port,
-        relayPort: config.getRawConfig().gerbil.clients_start_port,
+        listenPort: exitNode.listenPort || 51820,
+        relayPort: exitNode.relayPort || 21820,
         ipAddress: exitNode.address,
         peers
     };
